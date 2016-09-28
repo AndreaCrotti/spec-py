@@ -4,3 +4,4 @@ __pycache__
 *.pyc
 .tox
 *.egg-info
+/.coverage
