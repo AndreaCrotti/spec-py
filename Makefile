@@ -1,2 +1,2 @@
 test:
-	py.test -v spec/spec.py
+	py.test -v tests.py
