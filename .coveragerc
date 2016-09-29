@@ -1,0 +1,8 @@
+[run]
+omit = *tests*
+branch = True
+source =
+       spec
+
+[report]
+fail_under = 94
