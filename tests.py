@@ -3,6 +3,7 @@ import pytest
 from spec import spec
 
 
+
 def test_select_simple_case():
     inp = {
         "a": {"b": 1},
@@ -10,6 +11,32 @@ def test_select_simple_case():
     }
 
     assert list(spec.select(inp, ['a', 'b'])) == [1]
+
+
+def test_simple_maps():
+    is_even = lambda n: n % 2 == 0
+    inc = lambda n: n + 1
+
+    assert spec.transform(is_even, inc, {'a': 2, 'b': 1}) == {'a': 3, 'b': 1}
+
+
+
+@pytest.mark.skip
+def test_nested_maps():
+    """Increment every number nested within map of vector of maps
+    """
+    data = {
+        'a': [{'aa': 1, 'BB': 2},
+              {'cc': 3}],
+        'b': [{'dd': 4}],
+    }
+    desired = {
+        'a': [{'aa': 1, 'bb': 3},
+              {'cc': 3}],
+        'b': [{'dd': 5}],
+    }
+    is_even = lambda n: n % 2 == 0
+    assert spec.transform(is_even, lambda n: n + 1, data) == desired
 
 
 def test_transform():

@@ -5,8 +5,14 @@ import toolz
 # TODO: need a generic function to walk over the dictionary smartly enough
 # TODO: should work both on dictionaries and on list of dictionaries
 
-def transform(inp, filter, func):
-    pass
+
+def transform(filter_fn, transform_fn, data):
+    partial_dict = toolz.valfilter(filter_fn, data)
+    rest = toolz.dissoc(data, *partial_dict.keys())
+    return toolz.merge(
+        rest,
+        toolz.valmap(transform_fn, partial_dict),
+    )
 
 
 def traverse(inp, func):
