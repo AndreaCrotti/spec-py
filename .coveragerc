@@ -5,4 +5,4 @@ source =
        spec
 
 [report]
-fail_under = 94
+fail_under = 96

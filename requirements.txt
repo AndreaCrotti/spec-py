@@ -1,1 +1,2 @@
 toolz==0.8.0
+-e git://github.com/alecthomas/voluptuous.git@master#egg=voluptuous

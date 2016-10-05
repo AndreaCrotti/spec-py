@@ -54,6 +54,7 @@ def test_traverse():
     func = lambda x: x
     # TODO: test it with more mixed types
     assert spec.traverse({1: 2}, func) == {1: 2}
+    assert spec.traverse({1: {'a': 2}}, lambda n: n + 1) == {1: {'a': 3}}
 
 
 @pytest.mark.parametrize(('inp', 'out'), [

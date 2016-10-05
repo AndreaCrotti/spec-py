@@ -5,6 +5,8 @@ import toolz
 # TODO: need a generic function to walk over the dictionary smartly enough
 # TODO: should work both on dictionaries and on list of dictionaries
 
+# TODO: have a look at the flatdict library to see if that could be useful as well
+
 
 def transform(filter_fn, transform_fn, data):
     partial_dict = toolz.valfilter(filter_fn, data)
@@ -16,6 +18,7 @@ def transform(filter_fn, transform_fn, data):
 
 
 def traverse(inp, func):
+    # TODO: should allow to do transformations in place as well?
     new_result = {}
     # TODO: check how the traverse function in Clojure works
     if not isinstance(inp, dict):
