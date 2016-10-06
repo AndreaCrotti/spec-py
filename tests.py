@@ -87,5 +87,6 @@ def test_data_to_voluptuous():
         }})
     
     # TODO: add check
+    spec.to_voluptuous(inp)
     # assert spec.is_isomorphic(spec.to_voluptuous(inp).schema, desired_schema.schema)
     # assert spec.to_voluptuous(inp).schema == desired_schema.schema
