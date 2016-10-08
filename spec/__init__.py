@@ -55,9 +55,13 @@ def to_voluptuous(inp):
     return  a schema that matches everything
     """
     res = {}
+    
     for key, val in inp.items():
-        res[key] = {}
-        for k, v in val.items():
-            res[key][voluptuous.Required(k)] = type(v)
+        if isinstance(val, dict):
+            res[key] = {}
+            for k, v in val.items():
+                res[key][voluptuous.Required(k)] = type(v)
+        else:
+            res[key] = type(val)
 
     return voluptuous.Schema(res)

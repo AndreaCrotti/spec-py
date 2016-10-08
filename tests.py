@@ -77,7 +77,7 @@ def test_is_not_isomorphic(inp, out):
 
 
 @pytest.mark.parametrize(('inp', 'out_schema'), [
-    # ({'a': 10}, voluptuous.Schema({'a': int})),
+    ({'a': 10}, voluptuous.Schema({'a': int})),
     ({'dic': {'a': 1, 'b': 2}}, voluptuous.Schema({'dic': {voluptuous.Required('a'): int, voluptuous.Required('b'): int}})),
 ])
 def test_data_to_voluptuous(inp, out_schema):
