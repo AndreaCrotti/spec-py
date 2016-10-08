@@ -3,6 +3,8 @@ import voluptuous
 
 import spec
 
+# TODO: create a fixture that replaces globally every function with a
+# function decorated with the `collector` decorator
 
 
 def test_select_simple_case():

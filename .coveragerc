@@ -2,7 +2,7 @@
 omit = *tests*
 branch = True
 source =
-       spec
+       spec/__init__.py
 
 [report]
 fail_under = 96

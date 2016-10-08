@@ -50,6 +50,7 @@ def is_isomorphic(d1, d2):
     return with_types_1 == with_types_2
 
 
+# TODO: should not output a schema here directly
 def to_voluptuous(inp):
     """Given a data structure of any possible shape
     return  a schema that matches everything
