@@ -51,6 +51,9 @@ def is_isomorphic(d1, d2):
 
 
 def to_voluptuous(inp):
+    """Given a data structure of any possible shape
+    return  a schema that matches everything
+    """
     res = {}
     for key, val in inp.items():
         res[key] = {}

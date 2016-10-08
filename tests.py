@@ -76,17 +76,9 @@ def test_is_not_isomorphic(inp, out):
     assert not spec.is_isomorphic(inp, out)
 
 
-def test_data_to_voluptuous():
-    # given a list of possible input outputs to a certain function
-    # generate the minimal matching voluptuous schema
-    inp = {'dic': {'a': 1, 'b': 2}}
-    desired_schema = voluptuous.Schema({
-        'dic': {
-            voluptuous.Required('a'): int,
-            voluptuous.Required('b'): int,
-        }})
-    
-    # TODO: add check
-    spec.to_voluptuous(inp)
-    # assert spec.is_isomorphic(spec.to_voluptuous(inp).schema, desired_schema.schema)
-    # assert spec.to_voluptuous(inp).schema == desired_schema.schema
+@pytest.mark.parametrize(('inp', 'out_schema'), [
+    # ({'a': 10}, voluptuous.Schema({'a': int})),
+    ({'dic': {'a': 1, 'b': 2}}, voluptuous.Schema({'dic': {voluptuous.Required('a'): int, voluptuous.Required('b'): int}})),
+])
+def test_data_to_voluptuous(inp, out_schema):
+    assert spec.to_voluptuous(inp) == out_schema
